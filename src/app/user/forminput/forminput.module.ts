@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { ForminputComponent } from './forminput.component';
+import { HttpClientModule } from '@angular/common/http';
 import {A11yModule} from '@angular/cdk/a11y';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {PortalModule} from '@angular/cdk/portal';
@@ -43,6 +44,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ForminputService } from './forminput.service';
 @NgModule({
   declarations: [ForminputComponent],
   imports: [
@@ -89,11 +91,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTreeModule,
     PortalModule,
     ScrollingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
     ForminputComponent
 ],
-providers: [ForminputComponent]
+providers: [ForminputComponent, ForminputService, DatePipe]
 })
 export class ForminputModule { }

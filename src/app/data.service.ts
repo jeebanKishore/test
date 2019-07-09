@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 
 
 export interface Data {
-  message: string;
+  message: object;
 }
 
 
@@ -12,7 +12,7 @@ export interface Data {
 })
 export class DataService {
 
-  private data: Data = {message: 'example'};
+  private data: Data = {message: {}};
   private subject = new Subject<Data>();
 
   setData(value) {

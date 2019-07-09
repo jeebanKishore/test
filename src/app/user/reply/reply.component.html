@@ -1,1 +1,42 @@
-<p>reply works!</p>
+<div *ngIf=!showData>
+  No UserData to display
+</div>
+<div *ngIf=showData>
+  <table mat-table class="mat-elevation-z8">
+    <tr>
+      <th>User Data Collection</th>
+    </tr>
+    <tr>
+      <td>Name:</td>
+      <td>{{userData.name}}</td>
+    </tr>
+    <tr>
+      <td>Date of Birth</td>
+      <td>{{userData.dateOfBirth}}</td>
+    </tr>
+    <tr>
+      <td>Years of Exprience</td>
+      <td>{{userData.exprience}}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{userData.email}}</td>
+    </tr>
+    <tr>
+      <td>Phone Number</td>
+      <td>{{userData.phoneNumber}}</td>
+    </tr>
+    <tr>
+      <td>About User</td>
+      <td>{{userData.aboutYou}}</td>
+    </tr>
+    <tr>
+      <td>Adress:</td>
+      <td>{{userData.address}}</td>
+    </tr>
+    <tr>
+        <td>Gender:</td>
+        <td>{{userData.gender}}</td>
+      </tr>
+  </table>
+</div>

@@ -1,14 +1,13 @@
 import { ForminputService } from './forminput.service';
 import { Component, OnInit } from '@angular/core';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Location } from '@angular/common';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 export interface Userdata {
   name: string;
-  dateOfBirth: Date;
-  exprience: number;
+  dateOfBirth: string;
+  exprience: string;
   email: string;
-  phoneNumber: number;
+  phoneNumber: string;
   aboutYou: string;
   address: string;
   gender: string;
@@ -20,7 +19,7 @@ export interface Userdata {
 })
 export class ForminputComponent implements OnInit {
   public userData: FormGroup;
-  constructor(private location: Location, private forminputService: ForminputService) { }
+  constructor(private datePipe: DatePipe, private formInputService: ForminputService) { }
 
   ngOnInit() {
     this.userData = new FormGroup({
@@ -31,7 +30,7 @@ export class ForminputComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       phoneNumber: new FormControl('', [Validators.required, Validators.maxLength(11)]),
       aboutYou: new FormControl('', [Validators.required, Validators.maxLength(100)]),
-      gender: new FormControl('', [Validators.required, Validators.maxLength(100)])
+      gender: new FormControl('', [Validators.required])
     });
   }
 
@@ -48,14 +47,14 @@ export class ForminputComponent implements OnInit {
   private executeUserCreation = (userFormValue) => {
     const user: Userdata = {
       name: userFormValue.name,
-      dateOfBirth: userFormValue.dateOfBirth,
+      dateOfBirth: this.datePipe.transform(userFormValue.dateOfBirth, 'dd-MM-yyyy'),
       address: userFormValue.address,
-      exprience: userFormValue.exprience,
+      exprience: userFormValue.exprience as string,
       email: userFormValue.email,
-      phoneNumber: userFormValue.phoneNumber,
+      phoneNumber: userFormValue.phoneNumber as string,
       aboutYou: userFormValue.aboutYou,
       gender: userFormValue.gender
     };
-    console.log(user);
+    this.formInputService.sendData(user);
   }
 }
