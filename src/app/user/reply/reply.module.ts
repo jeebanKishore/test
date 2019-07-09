@@ -6,6 +6,8 @@ import { ReplyComponent } from './reply.component';
   declarations: [ReplyComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [ReplyComponent],
+  providers : [ReplyComponent]
 })
 export class ReplyModule { }

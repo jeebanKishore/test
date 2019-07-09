@@ -6,6 +6,10 @@ import { ForminputComponent } from './forminput.component';
   declarations: [ForminputComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [
+    ForminputComponent
+],
+providers: [ForminputComponent]
 })
 export class ForminputModule { }
