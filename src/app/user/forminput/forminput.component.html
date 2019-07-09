@@ -52,5 +52,8 @@
           <mat-option value="other">I prefer not to mention</mat-option>
         </mat-select>
       </mat-form-field>
+      <div align="left">
+          <button mat-raised-button type="submit" color="primary" [disabled]="!userData.valid">Create</button>
+      </div>
   </form>
 </div>

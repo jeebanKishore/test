@@ -27,9 +27,9 @@ export class ForminputComponent implements OnInit {
       name: new FormControl('', [Validators.required, Validators.maxLength(30)]),
       dateOfBirth: new FormControl(new Date()),
       address: new FormControl('', [Validators.required, Validators.maxLength(100)]),
-      exprience: new FormControl('',[Validators.required, Validators.max(25)]),
+      exprience: new FormControl('', [Validators.required, Validators.max(25)]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      phoneNumber: new FormControl('',[Validators.required, Validators.max(11)]),
+      phoneNumber: new FormControl('', [Validators.required, Validators.maxLength(11)]),
       aboutYou: new FormControl('', [Validators.required, Validators.maxLength(100)]),
       gender: new FormControl('', [Validators.required, Validators.maxLength(100)])
     });
@@ -45,16 +45,17 @@ export class ForminputComponent implements OnInit {
     }
   }
 
-    private executeUserCreation = (userFormValue) => {
+  private executeUserCreation = (userFormValue) => {
     const user: Userdata = {
       name: userFormValue.name,
       dateOfBirth: userFormValue.dateOfBirth,
       address: userFormValue.address,
       exprience: userFormValue.exprience,
-      email: userFormValue.exprience,
-      phoneNumber: userFormValue.exprience,
+      email: userFormValue.email,
+      phoneNumber: userFormValue.phoneNumber,
       aboutYou: userFormValue.aboutYou,
       gender: userFormValue.gender
     };
+    console.log(user);
   }
 }
