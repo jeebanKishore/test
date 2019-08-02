@@ -1,4 +1,4 @@
-# Fprms Module Test
+# Forms Module Test
 
 Visit https://jeebankishore.github.io/test/ for working version of this repository.
 
